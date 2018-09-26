@@ -16,7 +16,7 @@ extension Recipe {
         guard let cookbookURL = bundle.url(forResource: "Cookbook", withExtension: "plist") else { fatalError("Unable to determine URL for cookbook plist.") }
         guard let fileContents = NSArray(contentsOf: cookbookURL) as? [[String: String]] else { fatalError("Unable to load cookbook plist.") }
         
-        let recipies: [Recipe] = fileContents.flatMap { recipeData in
+        let recipies: [Recipe] = fileContents.compactMap { recipeData in
             // Fetch the recipe information.
             guard let title = recipeData["Title"],
                 let descriptionFileName = recipeData["Document"],

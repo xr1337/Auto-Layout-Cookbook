@@ -19,7 +19,7 @@ class InformationViewController: UIViewController {
     // MARK: UIViewController
     
     override func viewDidLayoutSubviews() {
-        guard let informationText = informationText, !informationText.characters.isEmpty else { fatalError("No information text has been set.") }
+        guard let informationText = informationText, !informationText.isEmpty else { fatalError("No information text has been set.") }
         informationTextView.text = informationText
     }
 }
